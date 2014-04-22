@@ -3,8 +3,16 @@
 	"name": "Money Time",
 	"version": "1.0",
 	"description": "An experiment about money and time.",
+
+	"content_scripts": [
+	    {
+	      "matches": ["http://www.google.com/*","https://www.google.com/*"],
+	      "js": ["js/main.js"]
+	    }
+	  ],
+
 	"browser_action": {
-		"default_icon": "icon.png",
+		"default_icon": "img/icon.png",
 		"default_popup": "index.html"
   	}
 
