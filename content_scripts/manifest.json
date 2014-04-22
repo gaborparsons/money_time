@@ -11,10 +11,7 @@
 	      	"https://*.google.com/*",
 	      	"http://*.amazon.com/*"
 	      ],
-	      "include_globs": [
-	      	"http://*.google.*/*"
-	      ],	      
-	      "js": ["js/main.js"]
+	      "js": ["js/main.js", "js/zepto.min.js"]
 	    }
 	  ],
 

@@ -1,0 +1,1 @@
+$( "div:contains('$')" ).css( "text-decoration", "underline" );
