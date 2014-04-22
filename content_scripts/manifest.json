@@ -6,7 +6,14 @@
 
 	"content_scripts": [
 	    {
-	      "matches": ["http://www.google.com/*","https://www.google.com/*"],
+	      "matches": [
+	      	"http://*.google.com/*",
+	      	"https://*.google.com/*",
+	      	"http://*.amazon.com/*"
+	      ],
+	      "include_globs": [
+	      	"http://*.google.*/*"
+	      ],	      
 	      "js": ["js/main.js"]
 	    }
 	  ],
