@@ -1,24 +1,43 @@
-$( "div:contains('$')" ).css( "text-decoration", "underline" );
+// $( "div:contains('$')" ).css( "text-decoration", "underline" );
 
-var moneyDivs = $("div:contains('$')");
+var moneyDivs = $("div:contains('$')"); //all divs containing a dollar sign
 for(var i = 0; i < moneyDivs.length; i++){
-    // console.log(money[i]);
-    var text = moneyDivs[i].innerHTML;
-    // console.log(text);
-    
-    var textSlice = text.substring(text.indexOf('$'), text.length);
-    var index = 1;
-    var moneyValue = '';
+    // console.log(moneyDivs[i]);
+    var text = moneyDivs[i].innerHTML;  //div's content
+    var startSpan = text.indexOf('$');  //first index of the monetary value
+
+    //Start storing the value by slicing the string
+    var textSlice = text.substring(startSpan, text.length);
+    var index = 1;          //Because the $ is the first index, we'll start from 1, not 0
+    var moneyValue = '';    //This will store the number found
 
     //add characters to the string:
     //if it is a number
     //if it is a dot
     //until the end of the original string
     while((!isNaN(textSlice[index]) || textSlice[index] == '.') && index < textSlice.length){
-        moneyValue += textSlice[index];
+        moneyValue += textSlice[index]; //Concatenate
         index ++;
     }
+    // console.log('string value: ' + moneyValue);
     moneyValue = parseFloat(moneyValue);
-    console.log(moneyValue);
-    // console.log(moneyValue);
+    // console.log('parsed value: ' + moneyValue);
+
+    /*----- CONVERTING TO TIME VALUE -----*/
+    var newValue = moneyValue * 10;
+    newValue = Math.round(newValue * 100) / 100;
+    
+    //Storing the last index found while adding the numbers
+    var endSpan = startSpan + index;
+
+    //Creating a new string to replace the original
+    var newText = text.substring(0, startSpan)
+    newText += newValue + ' hours ';
+    newText += text.substring(endSpan);
+
+    // console.log('endSpan: ' + endSpan + ', last index: ' + text.length);
+    // console.log(text.substring(endSpan));
+    
+    //Replace
+    moneyDivs[i].innerHTML = newText;
 }
