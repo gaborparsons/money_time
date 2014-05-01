@@ -9,32 +9,59 @@
 
     <body>
         <div id='container'>
-            <FORM NAME="myform" ACTION="" METHOD="GET">
-                <p>
-                    How much is your monthly income?<br>
-                    <INPUT TYPE="text" NAME="inputMoneyEarned"> USD<br>
-                </p>
-                <p>
-                    How much money remains (after taxes and expenses)?<br>
-                    <INPUT TYPE="text" NAME="inputMoneyRemaining"> USD<br>
-                </p>    
-                <p>
-                    How much free time do you have per week?<br>
-                    <INPUT TYPE="text" NAME="inputFreeTime"> USD<br>
-                </p>    
-                <p>
-                    How much would you charge for working an extra hour?<br>
-                    <INPUT TYPE="text" NAME="inputParaEarning"> USD<br>
-                </p>    
-                <p>
-                    How much would you spend on something that saved you 2 hours of work?<br>
-                    <INPUT TYPE="text" NAME="inputParaTime"> USD<br>
-                </p>
-                <p>
-                    For how long would you wait in line for a $100 coupon?<br>
-                    <INPUT TYPE="text" NAME="inputParaSaving"> MIN<br>
-                </p>    
+            <h1>
+                Money Time
+            </h1>
+            <hr>
+            <FORM NAME="myform" ACTION="" METHOD="GET">  
+
+                <div class="question">
+                    How much is your monthly income?
+                </div>
+                <div class="answer">
+                    <INPUT TYPE="text" NAME="inputMoneyEarned"> USD
+                </div>
+
+                <div class="question">
+                    How much money remains (after taxes and expenses)?
+                </div>
+                <div class="answer">
+                    <INPUT TYPE="text" NAME="inputMoneyRemaining"> USD
+                </div>    
+
+                <div class="question">
+                    How much free time do you have per week?
+                </div>
+                <div class="answer">
+                    <INPUT TYPE="text" NAME="inputFreeTime"> USD
+                </div>
+
+                <div class="question">
+                    How much would you charge for working an extra hour?
+                </div>
+                <div class="answer">
+                    <INPUT TYPE="text" NAME="inputParaEarning"> USD
+                </div>    
+
+                <div class="question">
+                    How much would you pay to save you 2 hours of work?
+                </div>
+                <div class="answer">
+                    <INPUT TYPE="text" NAME="inputParaTime"> USD
+                </div>
+
+                <div class="question">
+                    For how long would you wait in line for a $100 coupon?
+                </div>
+                <div class="answer">
+                    <INPUT TYPE="text" NAME="inputParaSaving"> MIN
+                </div>    
+                
+                <div class="question">
+                </div>
+                <div class="answer">
                     <INPUT TYPE="button" NAME="button" Value="Enter" onClick="insert(this.form)">
+                </div>
             </FORM>
         </div>
     <script type="text/javascript">
