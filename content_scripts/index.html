@@ -1,23 +1,90 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Money Time</title>
-    <style>
-      body {
-        min-width: 357px;
-        overflow-x: hidden;
-      }
-    </style>
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
-     -->
-    <script src="js/jquery-1.11.0.min.js"></script>    
-    <script src="js/main.js"></script>    
-  </head>
-  <body>
-  	This is another MFADT experiment.
-  </body>
+    <head>
+        <title>Test Input</title>
+        <style>
+          body {
+            min-width: 357px;
+            overflow-x: hidden;
+          }
+        </style>
+    </head>
+
+    <body>
+    <FORM NAME="myform" ACTION="" METHOD="GET">
+        <table>
+            <tr>
+                <td>Money Earned (per month):</td>
+                <td>
+                    <INPUT TYPE="text" NAME="inputMoneyEarned" VALUE=""> USD
+                </td>
+            </tr>
+             <tr>
+                <td>Money Remaining (per month):</td>
+                <td>
+                    <INPUT TYPE="text" NAME="inputMoneyRemaining" VALUE=""> USD
+                </td>
+            </tr>
+             <tr>
+                <td>Free Time (per week):</td>
+                <td>
+                    <INPUT TYPE="text" NAME="inputFreeTime" VALUE=""> USD
+                </td>
+            </tr>
+            <tr>
+                <td>Parameter 1h of bonus work </td>
+                <td>
+                    <INPUT TYPE="text" NAME="inputParaEarning" VALUE=""> USD
+                </td>
+            </tr>
+            <tr>
+                <td>Parameter 2h of time saved</td>
+                <td>
+                    <INPUT TYPE="text" NAME="inputParaTime" VALUE=""> USD
+                </td>
+            </tr>
+             <tr>
+               <td>Parameter wait for $100 coupon</td>
+                <td>
+                    <INPUT TYPE="text" NAME="inputParaSaving" VALUE=""> MIN
+                </td>
+             </tr>
+             <tr>
+               <td></td>
+                <td>
+                    <INPUT TYPE="button" NAME="button" Value="Enter" onClick="insert(this.form)">
+                </td>
+             </tr>
+    </FORM>
+
+    <script type="text/javascript">
+    // if(localStorage["iMoneyEarned"] !== 'undefined'){
+    //     console.log('hey');
+    // }
+    console.log(localStorage["iMoneyEarned"]);
+    console.log(localStorage["iMoneyRemaining"]);
+
+    function insert(form) {
+        //save values using local storage
+        var inputMoneyEarned = form.inputMoneyEarned.value;
+        localStorage["iMoneyEarned"] = inputMoneyEarned;
+        var inputMoneyRemaining = form.inputMoneyRemaining.value;
+        localStorage["iMoneyRemaining"] = inputMoneyRemaining;
+        var inputFreeTime = form.inputFreeTime.value;
+        localStorage["iFreeTime"] = inputFreeTime;
+        var inputParaEarning = form.inputParaEarning.value;
+        localStorage["iParaEarning"] = inputParaEarning;
+        var inputParaTime = form.inputParaTime.value;
+        localStorage["iParaTime"] = inputParaTime;
+        var inputParaSaving = form.inputParaSaving.value;
+        localStorage["iParaSaving"] = inputParaSaving;
+
+        alert ("Your values have been saved. You can modify your parameters by coming back to this page");
+
+        //we'd need it in case it becomes a popup window
+        // window.close("../input_form.html");
+    }
+    </script>
+
+    </body>
 </html>
