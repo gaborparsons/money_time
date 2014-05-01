@@ -8,7 +8,7 @@ body {
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
     font-size: 13px;
-    line-height: 18px;
+    line-height: 16px;
 }
 
 
@@ -30,7 +30,7 @@ input{
     font-size: 18px;
 
     width: 80px;
-    height: 26px;
+    height: 22px;
 
     border: solid gray 1px;
     background-color: white;
@@ -40,12 +40,18 @@ input{
     padding: 2px;
 }
 
-input[type="button"]{
+button{
     width: 85px;
     height: 26px;
 
     background-color: #fd004b; 
     border: 0px;
+
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px; 
+    border-radius: 4px;   
 }
 
 #container{
@@ -53,6 +59,7 @@ input[type="button"]{
 
     padding: 20px;    
     border: solid #333561 1px;
+    border-radius: 4px;
 }
 
 .question{
@@ -62,12 +69,12 @@ input[type="button"]{
     vertical-align: middle;
     text-align: right;
     /*border: solid #333561 1px;*/
-    padding: 2px;
+    padding: 4px 2px 4px 2px;
 }
 .answer{
     /*border: solid #333561 1px;*/
     display: inline-block;
     vertical-align: middle;
-    padding: 2px;
+    padding: 4px 2px 4px 2px;
 }
 

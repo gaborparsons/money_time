@@ -1,9 +1,9 @@
 <!doctype html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <title>Test Input</title>
-        <link rel="stylesheet" href="css/main.css">
+        <meta charset='utf-8'>
+        <title>Money Time</title>
+        <link rel='stylesheet' href='css/main.css'>
         <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
     </head>
 
@@ -13,113 +13,104 @@
                 Money Time
             </h1>
             <hr>
-            <FORM NAME="myform" ACTION="" METHOD="GET">
+            <FORM NAME='myform' ACTION='' METHOD='GET'>
 
-                <div class="question">
+                <div class='question'>
                     How much is your monthly income?
                 </div>
-                <div class="answer">
-                    <INPUT TYPE="text" NAME="inputMoneyEarned" id="inputMoneyEarned"> USD
+                <div class='answer'>
+                    <INPUT type='text' id='moneyEarned'> USD
                 </div>
 
-                <div class="question">
+                <div class='question'>
                     How much money remains (after taxes and expenses)?
                 </div>
-                <div class="answer">
-                    <INPUT TYPE="text" NAME="inputMoneyRemaining" id="inputMoneyRemaining"> USD
+                <div class='answer'>
+                    <INPUT type='text' id='moneyRemaining'> USD
                 </div>
 
-                <div class="question">
+                <div class='question'>
                     How much free time do you have per week?
                 </div>
-                <div class="answer">
-                    <INPUT TYPE="text" NAME="inputFreeTime" id="inputFreeTime"> USD
+                <div class='answer'>
+                    <INPUT type='text' id='freeTime'> USD
                 </div>
 
-                <div class="question">
+                <div class='question'>
                     How much would you charge for working an extra hour?
                 </div>
-                <div class="answer">
-                    <INPUT TYPE="text" NAME="inputParaEarning" id="inputParaEarning"> USD
+                <div class='answer'>
+                    <INPUT type='text' id='paraEarning'> USD
                 </div>
 
-                <div class="question">
+                <div class='question'>
                     How much would you pay to save you 2 hours of work?
                 </div>
-                <div class="answer">
-                    <INPUT TYPE="text" NAME="inputParaTime" id="inputParaTime"> USD
+                <div class='answer'>
+                    <INPUT type='text' id='paraTime'> USD
                 </div>
 
-                <div class="question">
+                <div class='question'>
                     For how long would you wait in line for a $100 coupon?
                 </div>
-                <div class="answer">
-                    <INPUT TYPE="text" NAME="inputParaSaving"  id="inputParaSaving"> MIN
+                <div class='answer'>
+                    <INPUT type='text' id='paraSaving'> MIN
                 </div>
 
-                <div class="question">
+                <div class='question'>
                 </div>
-                <div class="answer">
-                    <INPUT TYPE="button" NAME="button" Value="Enter" onClick="insert(this.form)">
+                <div class='answer'>
+                    <button type='button' onClick='validateForm()'>Enter</button>
                 </div>
             </FORM>
         </div>
 
-<script type="text/javascript">
-  //get the values from local storage
-  //in order to fill out the fields in case something has already been added
-  var moneyEarnedString = localStorage.getItem("iMoneyEarned");
-  var moneyRemainingString = localStorage.getItem("iMoneyRemaining");
-  var freeTimeString = localStorage.getItem("iFreeTime");
-  var paraEarningString = localStorage.getItem("iParaEarning");
-  var paraTimeString = localStorage.getItem("iParaTime");
-  var paraSavingString = localStorage.getItem("iParaSaving");
+    <script type='text/javascript'>
 
-  //transform the values to ints
-  if(moneyEarnedString != "null"){
-    document.getElementById("inputMoneyEarned").value = parseInt(moneyEarnedString);
-  }
+        //Selecting the inputs
+        var inputs = [];
+        inputs = document.getElementsByTagName('input');
 
-  if(moneyRemainingString != "null"){
-    document.getElementById("inputMoneyRemaining").value = parseInt(moneyRemainingString);
-  }
-  if(freeTimeString != "null"){
-    document.getElementById("inputFreeTime").value = parseInt(freeTimeString);
-  }
+        checkExisting();
 
-  if(paraEarningString != "null"){
-    document.getElementById("inputParaEarning").value = parseInt(paraEarningString);
-  }
-  if(paraTimeString != "null"){
-    document.getElementById("inputParaTime").value = parseInt(paraTimeString);;
-  }
+        //0. Check for existing values
+        function checkExisting(){
+            for(var i = 0; i < inputs.length; i++){
+                //Is there a value already?
+                //Note: our localStorage variables have the same name as our id's
+                if(localStorage.getItem(inputs[i].id) != ''){
+                    inputs[i].value = localStorage.getItem(inputs[i].id);
+                }
+            }
+        }
 
-  if(paraSavingString != "null"){
-    document.getElementById("inputParaSaving").value = parseInt(paraSavingString);;
-  }
+        //1. Validate form
+        function validateForm(){
+            var isMissing = false;
+            for(var i = 0; i < inputs.length; i++){
+                if(inputs[i].value == ''){
+                    isMissing = true;
+                }
+            }
 
-function insert(form) {
-    //save values using local storage
-    var inputMoneyEarned = form.inputMoneyEarned.value;
-    localStorage["iMoneyEarned"] = inputMoneyEarned;
-    var inputMoneyRemaining = form.inputMoneyRemaining.value;
-    localStorage["iMoneyRemaining"] = inputMoneyRemaining;
-    var inputFreeTime = form.inputFreeTime.value;
-    localStorage["iFreeTime"] = inputFreeTime;
-    var inputParaEarning = form.inputParaEarning.value;
-    localStorage["iParaEarning"] = inputParaEarning;
-    var inputParaTime = form.inputParaTime.value;
-    localStorage["iParaTime"] = inputParaTime;
-    var inputParaSaving = form.inputParaSaving.value;
-    localStorage["iParaSaving"] = inputParaSaving;
+            //Any field missing?
+            if(isMissing){
+                alert('You have to fill out all fields!');    
+            }else{
+                saveValues(inputs);
+                alert ('Your values have been saved. You can modify your parameters by coming back to this page');
+            }
+        }
 
-    alert ("Your values have been saved. You can modify your parameters by coming back to this page");
+        //2. Save values
+        function saveValues(){
+            for(var i = 0; i < inputs.length; i++){
+                //Saving a localStorage value with the same name as the input id
+                localStorage[inputs[i].id] = inputs[i].value;
+            }
+        }
 
-    //we'd need it in case it becomes a popup window
-    // window.close("../input_form.html");
-}
-
-</script>
+    </script>
 
     </body>
 </html>
