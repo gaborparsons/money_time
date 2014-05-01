@@ -1,0 +1,41 @@
+body {
+    min-width: 220px;
+    overflow-x: hidden;
+    background-color: #333561;
+    color: #7df3e8;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+input{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    /*margin-top: 5px;*/
+    font-size: 13px;
+    line-height: 15px;
+    border: solid gray 1px;
+    background-color: white;
+    color: #333561;
+    width: 80px;
+    border-radius: 5px;
+}
+
+input[type="button"]{
+    background-color: #fd004b; 
+    border: 0px;
+    width: 85px;
+}
+
+#container{
+    width: 200px;
+}
+

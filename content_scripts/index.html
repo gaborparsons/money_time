@@ -1,68 +1,43 @@
 <!doctype html>
 <html>
     <head>
+        <meta charset="utf-8">
         <title>Test Input</title>
-        <style>
-          body {
-            min-width: 357px;
-            overflow-x: hidden;
-          }
-        </style>
+        <link rel="stylesheet" href="css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
     </head>
 
     <body>
-    <FORM NAME="myform" ACTION="" METHOD="GET">
-        <table>
-            <tr>
-                <td>Money Earned (per month):</td>
-                <td>
-                    <INPUT TYPE="text" NAME="inputMoneyEarned" VALUE=""> USD
-                </td>
-            </tr>
-             <tr>
-                <td>Money Remaining (per month):</td>
-                <td>
-                    <INPUT TYPE="text" NAME="inputMoneyRemaining" VALUE=""> USD
-                </td>
-            </tr>
-             <tr>
-                <td>Free Time (per week):</td>
-                <td>
-                    <INPUT TYPE="text" NAME="inputFreeTime" VALUE=""> USD
-                </td>
-            </tr>
-            <tr>
-                <td>Parameter 1h of bonus work </td>
-                <td>
-                    <INPUT TYPE="text" NAME="inputParaEarning" VALUE=""> USD
-                </td>
-            </tr>
-            <tr>
-                <td>Parameter 2h of time saved</td>
-                <td>
-                    <INPUT TYPE="text" NAME="inputParaTime" VALUE=""> USD
-                </td>
-            </tr>
-             <tr>
-               <td>Parameter wait for $100 coupon</td>
-                <td>
-                    <INPUT TYPE="text" NAME="inputParaSaving" VALUE=""> MIN
-                </td>
-             </tr>
-             <tr>
-               <td></td>
-                <td>
+        <div id='container'>
+            <FORM NAME="myform" ACTION="" METHOD="GET">
+                <p>
+                    How much is your monthly income?<br>
+                    <INPUT TYPE="text" NAME="inputMoneyEarned"> USD<br>
+                </p>
+                <p>
+                    How much money remains (after taxes and expenses)?<br>
+                    <INPUT TYPE="text" NAME="inputMoneyRemaining"> USD<br>
+                </p>    
+                <p>
+                    How much free time do you have per week?<br>
+                    <INPUT TYPE="text" NAME="inputFreeTime"> USD<br>
+                </p>    
+                <p>
+                    How much would you charge for working an extra hour?<br>
+                    <INPUT TYPE="text" NAME="inputParaEarning"> USD<br>
+                </p>    
+                <p>
+                    How much would you spend on something that saved you 2 hours of work?<br>
+                    <INPUT TYPE="text" NAME="inputParaTime"> USD<br>
+                </p>
+                <p>
+                    For how long would you wait in line for a $100 coupon?<br>
+                    <INPUT TYPE="text" NAME="inputParaSaving"> MIN<br>
+                </p>    
                     <INPUT TYPE="button" NAME="button" Value="Enter" onClick="insert(this.form)">
-                </td>
-             </tr>
-    </FORM>
-
+            </FORM>
+        </div>
     <script type="text/javascript">
-    // if(localStorage["iMoneyEarned"] !== 'undefined'){
-    //     console.log('hey');
-    // }
-    console.log(localStorage["iMoneyEarned"]);
-    console.log(localStorage["iMoneyRemaining"]);
 
     function insert(form) {
         //save values using local storage
