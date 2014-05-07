@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Money Time</title>
+        <link rel='stylesheet' href='css/main.css'>
+        <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+        <div id='container'>
+            <h1>
+                Money Time
+            </h1>
+            <hr>
+            <FORM NAME='myform' ACTION='' METHOD='GET'>
+
+                <div class='question'>
+                    How much is your monthly income?
+                </div>
+                <div class='answer'>
+                    <INPUT type='text' id='moneyEarned'> USD
+                </div>
+
+                <div class='question'>
+                    How much money remains (after taxes and expenses)?
+                </div>
+                <div class='answer'>
+                    <INPUT type='text' id='moneyRemaining'> USD
+                </div>
+
+                <div class='question'>
+                    How much free time do you have per week?
+                </div>
+                <div class='answer'>
+                    <INPUT type='text' id='freeTime'> h
+                </div>
+
+                <div class='question'>
+                    How much would you charge for working an extra hour?
+                </div>
+                <div class='answer'>
+                    <INPUT type='text' id='paraEarning'> USD
+                </div>
+
+                <div class='question'>
+                    How much would you pay to save you 2 hours of work?
+                </div>
+                <div class='answer'>
+                    <INPUT type='text' id='paraTime'> USD
+                </div>
+
+                <div class='question'>
+                    For how long would you wait in line for a $100 coupon?
+                </div>
+                <div class='answer'>
+                    <INPUT type='text' id='paraSaving'> min
+                </div>
+
+                <div class='question'>
+                </div>
+                <div class='answer'>
+                    <button id='theButton' type='button'>Enter</button>
+                </div>
+            </FORM>
+            <p id="alert"></p>
+        </div>
+
+    <script type='text/javascript' src="js/popup.js"></script>
+
+    </body>
+</html>
