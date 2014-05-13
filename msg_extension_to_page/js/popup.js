@@ -133,30 +133,36 @@ function showResults(){
         var t = document.createTextNode("Turn off");
         btn.appendChild(t);
         btn.style.backgroundColor = '#fd004b';
+
+        //Add listener to button
+        btn.addEventListener('click', function(){
+            //Turn button on/off
+            localStorage['isActive'] = (localStorage['isActive'] == 'true') ? ('false') : ('true');
+            checkBtFormatting(btn);
+            reloadTab();
+        }, false);        
     }
     checkBtFormatting(btn);
-
-    //Add listener to button
-    btn.addEventListener('click', function(){
-        //Turn button on/off
-        localStorage['isActive'] = (localStorage['isActive'] == 'true') ? ('false') : ('true');
-        checkBtFormatting(btn);
-    }, false);
+    reloadTab();
 
     //Send value to background page
-    sendValue(localStorage['result']);
+    sendToBackground();
 }
 
-function sendValue(){
-    //Send value to background page, not to main tab!
-    //Sends
+function sendToBackground(){
+    console.log('Sending value');
+    // Send value to background page, not to main tab!
     chrome.runtime.sendMessage({result: localStorage['result'], isActive: localStorage['isActive']}, function(response) {
       console.log(response.msg);
-    });    
+    });
 
-    // chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
- //        chrome.tabs.sendMessage(tabs[0].id, {moneyTime: result});    
-    // });
+    reloadtab();
+}
+
+function reloadTab(){
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      chrome.tabs.reload(tabs[0].id);
+    });
 }
 
 function checkBtFormatting(btn){

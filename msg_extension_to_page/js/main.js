@@ -1,19 +1,11 @@
 //Check script loading
 console.log('Loaded main.js');
 
-//Listens
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    console.log(sender.tab ?
-                "from a content script:" + sender.tab.url :
-                "from the extension");
-    console.log(request.moneyTime);
-    convert(request.moneyTime);
-    // if (request.greeting == "hello")
-    //   sendResponse({farewell: "goodbye"});
-  }
-);
-
+//Ask background page for data
+chrome.runtime.sendMessage({init: 'true'}, function(response) {
+  console.log(response.msg);
+  convert(response.data);
+});
 
 
 function convert(result){
