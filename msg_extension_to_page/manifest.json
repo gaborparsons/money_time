@@ -4,6 +4,11 @@
 	"version": "1.0",
 	"description": "Sending message from extension to page",
 
+
+	"background": {
+	    "scripts": ["js/backgroundPage.js"]
+	},
+
 	"content_scripts": [
 	    {
 	      "matches": [

@@ -1,6 +1,7 @@
 //Check script loading
 console.log('Loaded main.js');
 
+//Listens
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     console.log(sender.tab ?
@@ -12,6 +13,8 @@ chrome.runtime.onMessage.addListener(
     //   sendResponse({farewell: "goodbye"});
   }
 );
+
+
 
 function convert(result){
 console.log('Converting values...');

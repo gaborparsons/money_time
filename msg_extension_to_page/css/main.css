@@ -2,7 +2,7 @@ body {
     min-width: 220px;
     overflow-x: hidden;
     /*background-color: #333561;*/
-    background-color: #B0DEED;
+    /*background-color: #B0DEED;*/
     /*color: #7df3e8;*/
     color: #333561;
     font-family: 'Quicksand', sans-serif;
@@ -20,8 +20,23 @@ button:focus {
     outline: none;
 }
 
+h1{
+    text-align: center;
+    color: #fd004b; 
+    font-size: 3em;
+    font-weight: 400;
+}
+h3{
+    text-align: center;
+    color: #fd004b; 
+}
+
+
 hr{
-    border: solid #333561 1px;
+    /*border: solid #333561 1px;*/
+    border: none;
+    height: 1px;
+    background-color: #333561;
 }
 
 input{
@@ -44,7 +59,8 @@ button{
     width: 85px;
     height: 26px;
 
-    background-color: #fd004b; 
+    background-color: #333561;
+    color: white; 
     border: 0px;
 
     font-family: 'Quicksand', sans-serif;
