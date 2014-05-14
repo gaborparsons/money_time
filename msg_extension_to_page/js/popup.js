@@ -117,7 +117,7 @@ function calculateMoneyTime(){
     localStorage['isActive'] = 'true';
     
     showResults();      //Show message
-    //HOW TO REFRESH PAGE?!?!?!
+    sendToBackground();
 }
 
 function showResults(){
@@ -139,14 +139,11 @@ function showResults(){
             //Turn button on/off
             localStorage['isActive'] = (localStorage['isActive'] == 'true') ? ('false') : ('true');
             checkBtFormatting(btn);
-            reloadTab();
+            sendToBackground();
         }, false);        
     }
-    checkBtFormatting(btn);
-    reloadTab();
 
-    //Send value to background page
-    sendToBackground();
+    checkBtFormatting(btn);
 }
 
 function sendToBackground(){
@@ -156,7 +153,7 @@ function sendToBackground(){
       console.log(response.msg);
     });
 
-    reloadtab();
+    reloadTab();
 }
 
 function reloadTab(){
