@@ -1,12 +1,13 @@
 {
 	"manifest_version": 2,
-	"name": "MSG: extension to page",
+	"name": "Moneytime",
 	"version": "1.0",
-	"description": "Sending message from extension to page",
+	"description": "A new way of visualizing your money",
 
 
 	"background": {
-	    "scripts": ["js/backgroundPage.js"]
+	    "scripts": ["js/eventPage.js"],
+	    "persistent": false
 	},
 
 	"content_scripts": [
